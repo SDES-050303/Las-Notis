@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Notis | Periódico Estudiantil 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-blue: #E3F2FD;
+            --pastel-green: #E8F5E9;
+            --pastel-orange: #FFF3E0;
+            --main-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fcfcfc;
+            color: #334155;
+            scroll-behavior: smooth;
+        }
+
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Tarjetas de noticias */
+        .news-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-4px);
+        }
+
+        /* Contenedor de video */
+        .video-box {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #f1f5f9;
+            border: 3px dashed #cbd5e1;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #94a3b8;
+            margin-top: 1.5rem;
+        }
+
+        /* Círculo para el logo lateral */
+        .logo-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: white;
+            border: 5px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .nav-link {
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--pastel-blue);
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <nav class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <img src="img/Logo_Las_Notis.jpeg" alt="Logo Las Notis" class="w-10 h-10 rounded-full object-cover shadow-sm">
+                    <span class="font-black text-blue-900 tracking-tighter uppercase">Las Notis</span>
+                </div>
+                <div class="hidden lg:flex space-x-1">
+                    <a href="#local" class="nav-link">Local</a>
+                    <a href="#nacional" class="nav-link">Nacional</a>
+                    <a href="#internacional" class="nav-link">Internacional</a>
+                    <a href="#deportes" class="nav-link">Deportes</a>
+                    <a href="#cultura" class="nav-link">Cultura</a>
+                    <a href="#tecnologia" class="nav-link">Tecnología</a>
+                    <a href="#entrevista" class="nav-link">Entrevista</a>
+                    <a href="#opinion" class="nav-link">Opinión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabecera Principal -->
+    <header class="py-12 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <img src="img/Logo_Las_Notis.jpeg" alt="[Logo Principal Las Notis]" class="w-64 md:w-80 mx-auto rounded-3xl shadow-xl mb-6">
+            <h1 class="serif-font text-5xl md:text-7xl font-black text-slate-900 leading-tight">Las Notis</h1>
+            <p class="text-slate-400 font-bold text-xs tracking-[0.5em] uppercase mt-4 italic">Información que te conecta • 2026</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Portada Hero -->
+        <section class="mb-16">
+            <div class="relative rounded-[3rem] overflow-hidden shadow-2xl h-[400px] md:h-[600px] border-[10px] border-white">
+                <img src="img/Logo_prin.jpeg" 
+                     alt="[Imagen de Noticia Principal]" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end">
+                    <div class="p-8 md:p-16 text-white max-w-4xl">
+                        <span class="bg-blue-600 px-4 py-1 rounded-full text-[10px] font-black mb-4 inline-block uppercase tracking-widest">Nuestras Noticias</span>
+                        <h2 class="text-4xl md:text-6xl serif-font font-black leading-tight">Descubriendo el mundo con una nueva mirada.</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuerpo de la página: 2 Columnas -->
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <!-- Columna Izquierda: Secciones -->
+            <div class="lg:w-2/3 space-y-16">
+                
+                <!-- 01. Local -->
+                <section id="local" class="news-card p-8 border-t-8 border-blue-200">
+                    <h3 class="text-2xl font-black mb-6 text-blue-900">01. Local</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">Crecimiento de las exportaciones</h4>
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" alt="[Crecimiento Local]" class="w-full h-72 object-cover rounded-2xl">
+                        <p class="text-slate-600 leading-relaxed text-lg">La economía local muestra un repunte histórico gracias al dinamismo de las exportaciones regionales.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/Local.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 02. Nacional -->
+                <section id="nacional" class="news-card p-8 border-t-8 border-orange-200">
+                    <h3 class="text-2xl font-black mb-6 text-orange-900">02. Nacional</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">Aumento de temperaturas</h4>
+                        <img src="img/temp.jpeg" alt="[Ola de Calor Nacional]" class="w-full h-72 object-cover rounded-2xl">
+                        <p class="text-slate-600 leading-relaxed text-lg">Se registran temperaturas récord en el país; autoridades emiten recomendaciones para la población.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/Nacional.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 03. Internacional -->
+                <section id="internacional" class="news-card p-8 border-t-8 border-indigo-200">
+                    <h3 class="text-2xl font-black mb-6 text-indigo-900">03. Internacional</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">Conflicto entre EUA, Israel e Irán</h4>
+                        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200" alt="[Conflictos Internacionales]" class="w-full h-72 object-cover rounded-2xl">
+                        <p class="text-slate-600 leading-relaxed text-lg">Análisis de las tensiones geopolíticas que impactan el equilibrio mundial.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/Internacional.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 04. Deportes -->
+                <section id="deportes" class="news-card p-8 border-t-8 border-emerald-200">
+                    <h3 class="text-2xl font-black mb-6 text-emerald-900">04. Deportes</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">Mundial 2026</h4>
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200" alt="[Mundial de Fútbol]" class="w-full h-72 object-cover rounded-2xl">
+                        <p class="text-slate-600 leading-relaxed text-lg">La fiebre del fútbol se intensifica con los preparativos para la gran cita mundialista de 2026.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/Deport.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 05. Cultura -->
+                <section id="cultura" class="news-card p-8 border-t-8 border-pink-200">
+                    <h3 class="text-2xl font-black mb-6 text-pink-900">05. Cultura / Entretenimiento</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">Coachella 2026</h4>
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=1200" alt="[Festival Coachella]" class="w-full h-72 object-cover rounded-2xl">
+                        <p class="text-slate-600 leading-relaxed text-lg">Un recorrido por el arte y la música que definen la cultura pop de este año.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/cultura.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 06. Tecnología -->
+                <section id="tecnologia" class="news-card p-8 border-t-8 border-slate-300">
+                    <h3 class="text-2xl font-black mb-6 text-slate-900">06. Tecnología / Ciencia</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">IA: El nuevo paradigma</h4>
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200" alt="[Inteligencia Artificial]" class="w-full h-72 object-cover rounded-2xl">
+                        <p class="text-slate-600 leading-relaxed text-lg">Cómo la inteligencia artificial está transformando la ciencia y nuestra vida cotidiana.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/Tecnologia.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 07. Entrevista -->
+                <section id="entrevista" class="news-card p-8 border-t-8 border-amber-200">
+                    <h3 class="text-2xl font-black mb-6 text-amber-900">07. Entrevista</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">Desarrollo de la IA</h4>
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200" alt="[Entrevista Especial]" class="w-full h-72 object-cover rounded-2xl shadow-sm">
+                        <p class="text-slate-600 leading-relaxed text-lg">Conversamos con líderes del sector tecnológico sobre los desafíos éticos de la IA.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/Entrevista.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 08. Opinión -->
+                <section id="opinion" class="news-card p-8 border-t-8 border-teal-200">
+                    <h3 class="text-2xl font-black mb-6 text-teal-900">08. Opinión</h3>
+                    <div class="space-y-6">
+                        <h4 class="text-2xl font-bold serif-font">Sobre la inclusión</h4>
+                        <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&q=80&w=1200" alt="[Inclusión]" class="w-full h-72 object-cover rounded-2xl">
+                        <p class="text-slate-600 leading-relaxed text-lg">Análisis crítico sobre la importancia de construir espacios más inclusivos para todos.</p>
+                        <div class="video-box">
+                            <video controls class="w-full rounded-lg">
+                                <source src="videos/Opinion.mp4" type="video/mp4">
+                                Tu navegador no soporta video.
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Columna Derecha: Sidebar -->
+            <aside class="lg:w-1/3">
+                <div class="sticky-sidebar space-y-10">
+                    
+                    <!-- Logo Lateral Circular -->
+                    <div class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm text-center">
+                        <div class="logo-circle">
+                            <img src="img/Logo_Las_Notis.jpeg" alt="Logo Las Notis Circular" class="w-full h-full object-contain p-2">
+                        </div>
+                        <p class="font-black text-blue-900 text-sm tracking-tighter uppercase italic">Las Notis</p>
+                    </div>
+
+                    <!-- Equipo Editorial -->
+                    <div class="bg-slate-900 text-white p-12 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full -mr-12 -mt-12"></div>
+                        <h4 class="text-xs font-black text-blue-400 uppercase tracking-[0.4em] mb-12 border-b border-slate-800 pb-4">Integrantes</h4>
+                        <ul class="space-y-8">
+                            <li class="flex flex-col">
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-1">Editora General</span>
+                                <span class="font-bold text-md text-slate-100">Maria Regina Casillas Vazquez</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-1">Diseño y Arte</span>
+                                <span class="font-bold text-md text-slate-100">Andrea Constanza Elizondo Silva</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-1">Redacción Nacional</span>
+                                <span class="font-bold text-md text-slate-100">Luna Regina Martínez Corona</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-1">Investigación</span>
+                                <span class="font-bold text-md text-slate-100">Zamantha Padilla Juárez</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-1">Multimedia</span>
+                                <span class="font-bold text-md text-slate-100">Julian Vargas Luna</span>
+                            </li>
+                        </ul>
+                        <div class="mt-12 pt-8 border-t border-slate-800 text-center opacity-40">
+                            <p class="text-[10px] font-bold uppercase tracking-widest italic tracking-tighter">Español • 2026</p>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-white border-t border-slate-100 py-20 mt-20 text-center">
+        <img src="https://i.ibb.co/LzqXWHSY/logo-notis.jpg" alt="Logo Pie de Página" class="w-16 h-16 mx-auto rounded-full mb-8 grayscale opacity-40">
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.8em]">Las Notis © Periódico Digital 2026</p>
+    </footer>
+
+</body>
+</html>
